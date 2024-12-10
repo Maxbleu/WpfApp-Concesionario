@@ -18,7 +18,7 @@ namespace WpfApp_Concesionario.ViewModels
         {
             _cocheService = cocheService;
             this.GuardarCoche = new RelayCommand(async () => await CrearVehiculoAsync());
-
+            this.Coche = new CocheModel();
         }
 
         public CrearVehiculoViewModel() { }
@@ -29,8 +29,6 @@ namespace WpfApp_Concesionario.ViewModels
             if (estaVacio) MessageBox.Show("Debes rellenar todos los campos", "Warning");
 
             await this._cocheService.POSTCocheAsync(Coche);
-
-
         }
 
         protected virtual void OnPropertyChanged(string propertyName)

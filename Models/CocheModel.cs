@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace WpfApp_Concesionario.Models
+﻿namespace WpfApp_Concesionario.Models
 {
     public class CocheModel
     {
@@ -27,6 +21,10 @@ namespace WpfApp_Concesionario.Models
             CarColor = carColor;
             YearOfManufacture = yearOfManufacture;
             CreditCardType = creditCardType;
+        }
+
+        public CocheModel()
+        {
         }
     }
 }
