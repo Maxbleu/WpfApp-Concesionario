@@ -1,17 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
+﻿using System.Windows.Controls;
 using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using WpfApp_Concesionario.Models;
+using WpfApp_Concesionario.Services;
 
 namespace WpfApp_Concesionario.Controls
 {
@@ -20,9 +10,18 @@ namespace WpfApp_Concesionario.Controls
     /// </summary>
     public partial class ListarVehiculosControl : UserControl
     {
-        public ListarVehiculosControl()
+        private readonly CocheService _cocheService;
+        public ListarVehiculosControl(CocheService cocheService)
         {
             InitializeComponent();
+            this._cocheService = cocheService;
+        }
+
+        private async void Window_LoadedAsync(object sender, System.Windows.RoutedEventArgs e)
+        {
+            List<CocheModel> vehiculos = await this._cocheService.GETCochesAsync();
+            CollectionViewSource collectionViewSource = ((CollectionViewSource)(FindResource("vehiculosViewSource")));
+            collectionViewSource.Source = vehiculos;
         }
     }
 }

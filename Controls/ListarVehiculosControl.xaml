@@ -5,9 +5,59 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WpfApp_Concesionario.Controls"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800"
-             Background="White">
-    <Grid>
-        <TextBox Text="LISTAR VEHICULOS" HorizontalAlignment="Center" VerticalAlignment="Center" Width="200"/>
+             d:DesignHeight="400" d:DesignWidth="800"
+             Background="White" Loaded="Window_LoadedAsync">
+
+    <UserControl.Resources>
+        <CollectionViewSource x:Key="vehiculosViewSource" d:DesignSource="{d:DesignInstance {x:Type local:Vehiculo}, CreateList=True}" />
+    </UserControl.Resources>
+
+    <Grid DataContext="{StaticResource vehiculosViewSource}">
+
+        <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding}">
+            <DataGrid.Columns>
+                <DataGridTextColumn x:Name="firstNameColumn" 
+                                    Binding="{Binding FirstName}"
+                                    Header="FirstName"
+                                    Width="SizeToHeader" />
+
+                <DataGridTextColumn x:Name="lastNameColumn"
+                                    Binding="{Binding LastName}"
+                                    Header="LastName"
+                                    Width="SizeToHeader" />
+
+                <DataGridTextColumn x:Name="countryColumn"
+                                    Binding="{Binding Country}"
+                                    Header="Country"
+                                    Width="SizeToHeader" />
+
+                <DataGridTextColumn x:Name="carBrandColumn"
+                                    Binding="{Binding CarBrand}"
+                                    Header="CarBrand"
+                                    Width="SizeToHeader" />
+
+                <DataGridTextColumn x:Name="carModelColumn"
+                                    Binding="{Binding CarModel}"
+                                    Header="CarModel"
+                                    Width="SizeToHeader" />
+
+                <DataGridTextColumn x:Name="carColorColumn"
+                                    Binding="{Binding CarColor}"
+                                    Header="CarColor"
+                                    Width="SizeToHeader" />
+
+                <DataGridTextColumn x:Name="yearOfManufactureColumn"
+                                    Binding="{Binding YearOfManufacture}"
+                                    Header="YearOfManufacture"
+                                    Width="SizeToHeader" />
+
+                <DataGridTextColumn x:Name="creditCardTypeColumn"
+                                    Binding="{Binding CreditCardType}"
+                                    Header="CreditCardType"
+                                    Width="SizeToHeader" />
+
+            </DataGrid.Columns>
+        </DataGrid>
+        
     </Grid>
 </UserControl>
