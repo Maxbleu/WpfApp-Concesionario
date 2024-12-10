@@ -5,6 +5,7 @@ using System.Windows;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using WpfApp_Concesionario.Controls;
+using WpfApp_Concesionario.DI;
 using WpfApp_Concesionario.Services;
 using WpfApp_Concesionario.ViewModels;
 
@@ -21,6 +22,7 @@ namespace WpfApp_Concesionario
             ServiceCollection services = new ServiceCollection();
             ConfigureServices(services);
             _serviceProvider = services.BuildServiceProvider();
+            InstanceServiceProvider.SetServiceProvider(_serviceProvider);
         }
 
         private void ConfigureServices(ServiceCollection services)
@@ -45,8 +47,8 @@ namespace WpfApp_Concesionario
             services.AddSingleton<ListarVehiculosControl>();
 
             //  CREAR VEHICULOS
-            services.AddSingleton<CrearVehiculoViewModel>();
-            services.AddSingleton<CrearVehiculoControl>();
+            services.AddTransient<CrearVehiculoViewModel>();
+            services.AddTransient<CrearVehiculoControl>();
 
             //  MODIFICAR VEHICULO
             services.AddSingleton<ModificarVehiculoControl>();

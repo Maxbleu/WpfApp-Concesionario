@@ -1,6 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 using WpfApp_Concesionario.Controls;
+using WpfApp_Concesionario.DI;
 using WpfApp_Concesionario.ViewModels;
 
 namespace WpfApp_Concesionario
@@ -13,17 +14,14 @@ namespace WpfApp_Concesionario
         private readonly ListarVehiculosControl _listarVehiculosControl;
         private readonly LoginControl _loginControl;
         private readonly LoginViewModel _loginViewModel;
-        private readonly CrearVehiculoControl _crearVehiculoControl;
-        private readonly ModificarVehiculoControl _modificarVehiculoControl;
         private readonly EliminarVehiculoControl _eliminarVehiculoControl;
-        public MainWindow(ListarVehiculosControl listarVehiculosControl, LoginControl loginControl, LoginViewModel loginViewModel, CrearVehiculoControl crearVehiculoControl, ModificarVehiculoControl modificarVehiculoControl, EliminarVehiculoControl eliminarVehiculoControl)
+        public MainWindow(ListarVehiculosControl listarVehiculosControl, LoginControl loginControl, LoginViewModel loginViewModel, EliminarVehiculoControl eliminarVehiculoControl)
         {
             InitializeComponent();
+
             this._listarVehiculosControl = listarVehiculosControl;
             this._loginControl = loginControl;
             this._loginViewModel = loginViewModel;
-            this._crearVehiculoControl = crearVehiculoControl;
-            this._modificarVehiculoControl = modificarVehiculoControl;
             this._eliminarVehiculoControl = eliminarVehiculoControl;
 
             this.DataContext = this._loginViewModel;
@@ -61,11 +59,11 @@ namespace WpfApp_Concesionario
         }
         private void Menu_Click_OpenCrearVehiculo(object sender, RoutedEventArgs e)
         {
-            this.MainContent.Content = this._crearVehiculoControl;
+            this.MainContent.Content = InstanceServiceProvider.GetService<CrearVehiculoControl>();
         }
         private void Menu_Click_OpenModificarVehiculo(object sender, RoutedEventArgs e)
         {
-            this.MainContent.Content = this._modificarVehiculoControl;
+            //this.MainContent.Content = this._modificarVehiculoControl;
         }
         private void Menu_Click_OpenEliminarVehiculo(object sender, RoutedEventArgs e)
         {

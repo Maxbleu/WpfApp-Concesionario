@@ -14,7 +14,7 @@
 
     <Grid DataContext="{StaticResource vehiculosViewSource}">
 
-        <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding}">
+        <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding}" SelectionMode="Single">
             <DataGrid.Columns>
                 <DataGridTextColumn x:Name="firstNameColumn" 
                                     Binding="{Binding FirstName}"
