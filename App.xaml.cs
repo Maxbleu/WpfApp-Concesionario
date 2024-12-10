@@ -45,6 +45,7 @@ namespace WpfApp_Concesionario
             services.AddSingleton<ListarVehiculosControl>();
 
             //  CREAR VEHICULOS
+            services.AddSingleton<CrearVehiculoViewModel>();
             services.AddSingleton<CrearVehiculoControl>();
 
             //  MODIFICAR VEHICULO

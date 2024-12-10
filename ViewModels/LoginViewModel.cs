@@ -10,6 +10,7 @@ namespace WpfApp_Concesionario.ViewModels
     {
         private AuthService _authService;
         private bool _isAuthenticated;
+        public event PropertyChangedEventHandler? PropertyChanged;
         public UserModel User { get; set; }
         public ICommand LoginCommand { get; private set; }
         public bool IsAuthenticated
@@ -42,8 +43,6 @@ namespace WpfApp_Concesionario.ViewModels
 
             OnPropertyChanged(nameof(IsAuthenticated));
         }
-
-        public event PropertyChangedEventHandler? PropertyChanged;
 
         protected virtual void OnPropertyChanged(string propertyName)
         {
