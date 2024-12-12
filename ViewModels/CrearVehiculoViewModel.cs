@@ -55,51 +55,56 @@ namespace WpfApp_Concesionario.ViewModels
 
         private async Task CrearVehiculoAsync()
         {
-            bool estaVacio = string.IsNullOrEmpty(Coche.FirstName) || string.IsNullOrEmpty(Coche.LastName) || string.IsNullOrEmpty(Coche.Country) || string.IsNullOrEmpty(Coche.CarBrand) || string.IsNullOrEmpty(Coche.CarModel) || string.IsNullOrEmpty(Coche.CarColor) || Coche.YearOfManufacture == 0 || string.IsNullOrEmpty(Coche.CreditCardType);
-            if (estaVacio) MessageBox.Show("Debes rellenar todos los campos", "Warning");
 
-            if (this._modoManipulacionDatos == ModoManipulacionDatos.CREATE)
+            if (string.IsNullOrEmpty(Coche.FirstName) || string.IsNullOrEmpty(Coche.LastName) || string.IsNullOrEmpty(Coche.Country) || string.IsNullOrEmpty(Coche.CarBrand) || string.IsNullOrEmpty(Coche.CarModel) || string.IsNullOrEmpty(Coche.CarColor) || Coche.YearOfManufacture == 0 || string.IsNullOrEmpty(Coche.CreditCardType))
             {
-                CocheModel cocheCreado = await this._cocheService.POSTCocheAsync(Coche);
-                this._listarVehiculosViewModel.ListaVehiculos.Add(cocheCreado);
+                MessageBox.Show("Debes rellenar todos los campos", "Warning");
             }
             else
             {
-                Dictionary<string, JsonElement> propiedadesModificadas = new Dictionary<string, JsonElement>();
-
-                //  Obtenemos los campos que se han actualizado
-                Type type = typeof(CocheModel);
-                PropertyInfo[] propiedades = type.GetProperties();
-
-                foreach (PropertyInfo propiedad in propiedades)
+                if (this._modoManipulacionDatos == ModoManipulacionDatos.CREATE)
                 {
-                    string nombrePropiedad = propiedad.Name;
+                    CocheModel cocheCreado = await this._cocheService.POSTCocheAsync(Coche);
+                    this._listarVehiculosViewModel.ListaVehiculos.Add(cocheCreado);
+                }
+                else
+                {
+                    Dictionary<string, JsonElement> propiedadesModificadas = new Dictionary<string, JsonElement>();
 
-                    object valorPropiedadObjModificada = propiedad.GetValue(this.Coche);
-                    object valorPropiedadObjOriginal = propiedad.GetValue(this._listarVehiculosViewModel.VehiculoSeleccionado);
+                    //  Obtenemos los campos que se han actualizado
+                    Type type = typeof(CocheModel);
+                    PropertyInfo[] propiedades = type.GetProperties();
 
-                    if (!valorPropiedadObjModificada.Equals(valorPropiedadObjOriginal))
+                    foreach (PropertyInfo propiedad in propiedades)
                     {
-                        if (propiedad.PropertyType == typeof(int))
+                        string nombrePropiedad = propiedad.Name;
+
+                        object valorPropiedadObjModificada = propiedad.GetValue(this.Coche);
+                        object valorPropiedadObjOriginal = propiedad.GetValue(this._listarVehiculosViewModel.VehiculoSeleccionado);
+
+                        if (!valorPropiedadObjModificada.Equals(valorPropiedadObjOriginal))
                         {
-                            int valorPropiedadInt = (int)valorPropiedadObjModificada;
-                            propiedadesModificadas.Add(nombrePropiedad, JsonDocument.Parse(valorPropiedadInt.ToString()).RootElement);
-                        }
-                        else if (propiedad.PropertyType == typeof(string))
-                        {
-                            string valorPropiedadString = (string)valorPropiedadObjModificada;
-                            propiedadesModificadas.Add(nombrePropiedad, JsonDocument.Parse($"\"{valorPropiedadString}\"").RootElement);
+                            if (propiedad.PropertyType == typeof(int))
+                            {
+                                int valorPropiedadInt = (int)valorPropiedadObjModificada;
+                                propiedadesModificadas.Add(nombrePropiedad, JsonDocument.Parse(valorPropiedadInt.ToString()).RootElement);
+                            }
+                            else if (propiedad.PropertyType == typeof(string))
+                            {
+                                string valorPropiedadString = (string)valorPropiedadObjModificada;
+                                propiedadesModificadas.Add(nombrePropiedad, JsonDocument.Parse($"\"{valorPropiedadString}\"").RootElement);
+                            }
                         }
                     }
+
+                    CocheModel cocheModificado = await this._cocheService.UPDATECocheAsync(this._listarVehiculosViewModel.VehiculoSeleccionado.Id, propiedadesModificadas);
+                    this._listarVehiculosViewModel.ListaVehiculos[this._listarVehiculosViewModel.VehiculoSeleccionado.Id - 1] = Coche;
                 }
 
-                CocheModel cocheModificado = await this._cocheService.UPDATECocheAsync(this._listarVehiculosViewModel.VehiculoSeleccionado.Id, propiedadesModificadas);
-                this._listarVehiculosViewModel.ListaVehiculos[this._listarVehiculosViewModel.VehiculoSeleccionado.Id - 1] = Coche;
+                this._mainWindowViewModel.NavigateToListarVehiculos();
+
+                MessageBox.Show("Coche guardado correctamente", "Info");
             }
-
-            this._mainWindowViewModel.NavigateToListarVehiculos();
-
-            MessageBox.Show("Coche guardado correctamente", "Info");
         }
         protected virtual void OnPropertyChanged(string propertyName)
         {
