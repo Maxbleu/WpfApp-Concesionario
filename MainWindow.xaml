@@ -9,7 +9,7 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
 
-        <Menu HorizontalAlignment="Left" VerticalAlignment="Top" IsEnabled="{Binding LoginViewModel.IsAuthenticated}">
+        <Menu HorizontalAlignment="Left" VerticalAlignment="Top" IsEnabled="{Binding LoginViewModel.IsAuthenticated}" Visibility="{Binding MenuVisibility}">
             <MenuItem Header="Listar vehiculos" Command="{Binding NavegarControlListarVehiculosCommand}" />
             <MenuItem Header="Crear vehiculo" Command="{Binding NavegarControlCrearVehiculoCommand}"/>
             <MenuItem Header="Modificar vehiculo" Command="{Binding NavegarControlModificarVehiculoCommand}" IsEnabled="{Binding IsCocheChecked}" />

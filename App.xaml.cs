@@ -50,9 +50,6 @@ namespace WpfApp_Concesionario
             services.AddTransient<CrearVehiculoViewModel>();
             services.AddTransient<CrearVehiculoControl>();
 
-            //  ELIMINAR VEHICULO
-            services.AddSingleton<EliminarVehiculoControl>();
-
             //  MAIN WINDOW
             services.AddSingleton<MainWindowViewModel>();
             services.AddSingleton<MainWindow>();

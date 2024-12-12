@@ -1,6 +1,4 @@
-﻿using System.Windows;
-using System.Windows.Controls;
-using WpfApp_Concesionario.DI;
+﻿using System.Windows.Controls;
 using WpfApp_Concesionario.ViewModels;
 
 namespace WpfApp_Concesionario.Controls

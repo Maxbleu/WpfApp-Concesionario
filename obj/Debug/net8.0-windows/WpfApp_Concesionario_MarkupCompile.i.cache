@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
 C:\Users\juanf\Desktop\Repos\Maxbleu\WpfApp_Concesionario\App.xaml
-5-897207349
+4-812084841
 
-231541845177
+22-1732097324
 2111255996005
-Controls\CrearVehiculoControl.xaml;Controls\EliminarVehiculoControl.xaml;Controls\ListarVehiculosControl.xaml;Controls\LoginControl.xaml;MainWindow.xaml;
+Controls\CrearVehiculoControl.xaml;Controls\ListarVehiculosControl.xaml;Controls\LoginControl.xaml;MainWindow.xaml;
 
-False
+True
 
