@@ -70,7 +70,7 @@ namespace WpfApp_Concesionario.Controls {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/WpfApp_Concesionario;V1.0.0.0;component/controls/logincontrol.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/WpfApp_Concesionario;component/controls/logincontrol.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Controls\LoginControl.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

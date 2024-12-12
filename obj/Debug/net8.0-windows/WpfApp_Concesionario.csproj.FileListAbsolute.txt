@@ -1,6 +1,5 @@
 C:\Users\juanf\Desktop\Repos\Maxbleu\WpfApp_Concesionario\obj\Debug\net8.0-windows\WpfApp_Concesionario.csproj.AssemblyReference.cache
 C:\Users\juanf\Desktop\Repos\Maxbleu\WpfApp_Concesionario\obj\Debug\net8.0-windows\Controls\CrearVehiculoControl.g.cs
-C:\Users\juanf\Desktop\Repos\Maxbleu\WpfApp_Concesionario\obj\Debug\net8.0-windows\Controls\EliminarVehiculoControl.g.cs
 C:\Users\juanf\Desktop\Repos\Maxbleu\WpfApp_Concesionario\obj\Debug\net8.0-windows\Controls\ListarVehiculosControl.g.cs
 C:\Users\juanf\Desktop\Repos\Maxbleu\WpfApp_Concesionario\obj\Debug\net8.0-windows\Controls\LoginControl.g.cs
 C:\Users\juanf\Desktop\Repos\Maxbleu\WpfApp_Concesionario\obj\Debug\net8.0-windows\MainWindow.g.cs
@@ -31,7 +30,6 @@ C:\Users\juanf\Desktop\Repos\Maxbleu\WpfApp_Concesionario\bin\Debug\net8.0-windo
 C:\Users\juanf\Desktop\Repos\Maxbleu\WpfApp_Concesionario\bin\Debug\net8.0-windows\System.Text.Json.dll
 C:\Users\juanf\Desktop\Repos\Maxbleu\WpfApp_Concesionario\bin\Debug\net8.0-windows\runtimes\browser\lib\net8.0\System.Text.Encodings.Web.dll
 C:\Users\juanf\Desktop\Repos\Maxbleu\WpfApp_Concesionario\obj\Debug\net8.0-windows\Controls\CrearVehiculoControl.baml
-C:\Users\juanf\Desktop\Repos\Maxbleu\WpfApp_Concesionario\obj\Debug\net8.0-windows\Controls\EliminarVehiculoControl.baml
 C:\Users\juanf\Desktop\Repos\Maxbleu\WpfApp_Concesionario\obj\Debug\net8.0-windows\Controls\ListarVehiculosControl.baml
 C:\Users\juanf\Desktop\Repos\Maxbleu\WpfApp_Concesionario\obj\Debug\net8.0-windows\Controls\LoginControl.baml
 C:\Users\juanf\Desktop\Repos\Maxbleu\WpfApp_Concesionario\obj\Debug\net8.0-windows\MainWindow.baml
