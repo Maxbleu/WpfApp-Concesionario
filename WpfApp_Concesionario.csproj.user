@@ -19,9 +19,6 @@
     <Compile Update="Controls\LoginControl.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Controls\ModificarVehiculoControl.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="Controls\CrearVehiculoControl.xaml">
@@ -34,9 +31,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Controls\LoginControl.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="Controls\ModificarVehiculoControl.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MainWindow.xaml">

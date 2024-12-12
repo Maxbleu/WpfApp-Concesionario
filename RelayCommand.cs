@@ -4,24 +4,33 @@ namespace WpfApp_Concesionario
 {
     public class RelayCommand : ICommand
     {
-        public Func<Task> _execute;
+        public Func<Task> _executeFunc;
+        public Action _executeAct;
         public event EventHandler? CanExecuteChanged;
 
         public RelayCommand(Func<Task> execute)
         {
-            _execute = execute;
+            this._executeFunc = execute;
+        }
+
+        public RelayCommand(Action execute)
+        {
+            this._executeAct = execute;
         }
 
         public bool CanExecute(object? parameter)
         {
             return true;
         }
-
         public async void Execute(object? parameter)
         {
-            if (this._execute != null)
+            if (this._executeFunc != null)
             {
-                await this._execute();
+                await this._executeFunc();
+            }
+            else
+            {
+                this._executeAct();
             }
         }
     }

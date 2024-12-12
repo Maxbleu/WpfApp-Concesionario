@@ -7,9 +7,9 @@
              xmlns:vm="clr-namespace:WpfApp_Concesionario.ViewModels"
              mc:Ignorable="d" 
              d:DesignHeight="250" d:DesignWidth="400"
-             Background="White" Loaded="Window_Loaded">
+             Background="White">
 
-    <Grid x:Name="controladorIniciarSesion">
+    <Grid>
 
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>

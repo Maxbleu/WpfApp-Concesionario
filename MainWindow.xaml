@@ -3,17 +3,18 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WpfApp_Concesionario.ViewModels"
+        xmlns:local="clr-namespace:WpfApp_Concesionario"
+        xmlns:vm="clr-namespace:WpfApp_Concesionario.ViewModels"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" Loaded="Window_Loaded">
+        Title="MainWindow" Height="450" Width="800">
     <Grid>
 
-        <Menu HorizontalAlignment="Left" VerticalAlignment="Top" IsEnabled="{Binding IsAuthenticated}">
-            <MenuItem Header="Listar vehiculos" Click="Menu_Click_OpenListarVehiculos" />
-            <MenuItem Header="Crear vehiculo" Click="Menu_Click_OpenCrearVehiculo" />
-            <MenuItem Header="Modificar vehiculo" Click="Menu_Click_OpenModificarVehiculo" />
-            <MenuItem Header="Eliminar vehiculo" Click="Menu_Click_OpenEliminarVehiculo" />
+        <Menu HorizontalAlignment="Left" VerticalAlignment="Top" IsEnabled="{Binding LoginViewModel.IsAuthenticated}">
+            <MenuItem Header="Listar vehiculos" Command="{Binding NavegarControlListarVehiculosCommand}" />
+            <MenuItem Header="Crear vehiculo" Command="{Binding NavegarControlCrearVehiculoCommand}"/>
+            <MenuItem Header="Modificar vehiculo" Command="{Binding NavegarControlModificarVehiculoCommand}" IsEnabled="{Binding IsCocheChecked}" />
+            <MenuItem Header="Eliminar vehiculo" Command="{Binding EliminarVehiculoCommad}" IsEnabled="{Binding IsCocheChecked}" />
         </Menu>
-        <ContentControl x:Name="MainContent" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,20,0,0" />
+        <ContentControl Content="{Binding CurrentContent}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,20,0,0" />
     </Grid>
 </Window>

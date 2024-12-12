@@ -2,6 +2,7 @@
 {
     public class CocheModel
     {
+        public int Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Country { get; set; }
@@ -11,8 +12,9 @@
         public int YearOfManufacture { get; set; }
         public string CreditCardType { get; set; }
 
-        public CocheModel(string firstName, string lastName, string country, string carBrand, string carModel, string carColor, int yearOfManufacture, string creditCardType)
+        public CocheModel(int id,string firstName, string lastName, string country, string carBrand, string carModel, string carColor, int yearOfManufacture, string creditCardType)
         {
+            this.Id = id;
             FirstName = firstName;
             LastName = lastName;
             Country = country;

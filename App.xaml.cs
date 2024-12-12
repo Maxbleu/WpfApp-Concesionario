@@ -24,7 +24,6 @@ namespace WpfApp_Concesionario
             _serviceProvider = services.BuildServiceProvider();
             InstanceServiceProvider.SetServiceProvider(_serviceProvider);
         }
-
         private void ConfigureServices(ServiceCollection services)
         {
 
@@ -44,21 +43,20 @@ namespace WpfApp_Concesionario
             services.AddSingleton<LoginControl>();
 
             //  LISTAR VEHICULOS
+            services.AddSingleton<ListarVehiculosViewModel>();
             services.AddSingleton<ListarVehiculosControl>();
 
             //  CREAR VEHICULOS
             services.AddTransient<CrearVehiculoViewModel>();
             services.AddTransient<CrearVehiculoControl>();
 
-            //  MODIFICAR VEHICULO
-            services.AddSingleton<ModificarVehiculoControl>();
-
             //  ELIMINAR VEHICULO
             services.AddSingleton<EliminarVehiculoControl>();
 
+            //  MAIN WINDOW
+            services.AddSingleton<MainWindowViewModel>();
             services.AddSingleton<MainWindow>();
         }
-
         protected override void OnStartup(StartupEventArgs e)
         {
             var mainWindow = _serviceProvider.GetService<MainWindow>();
