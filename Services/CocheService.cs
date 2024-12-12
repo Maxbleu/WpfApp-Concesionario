@@ -29,7 +29,6 @@ namespace WpfApp_Concesionario.Services
         /// <param name="token"></param>
         public void LoadJwtToken(string token)
         {
-            this._httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
             _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
         }
         /// <summary>
